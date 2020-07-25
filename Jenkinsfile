@@ -1,10 +1,9 @@
-pipeline {
-    agent { docker { image 'maven:3.3.3' } }
-    stages {
-        stage('build') {
-            steps {
-                sh 'mvn --version'
-            }
-        }
+node{
+    stage('SCM Checkout'){
+        tool name: '', type: 'maven'
+        git 'https://github.com/xlsarath/eCommerce-Application'
+    }
+    stage('Compile-Package'){
+    sh 'mvn package'
     }
 }
