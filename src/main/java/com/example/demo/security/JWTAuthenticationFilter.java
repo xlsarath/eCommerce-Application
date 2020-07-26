@@ -1,5 +1,7 @@
 package com.example.demo.security;
 
+import com.example.demo.component.JwtUtils;
+import com.example.demo.model.requests.AuthenticationRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
