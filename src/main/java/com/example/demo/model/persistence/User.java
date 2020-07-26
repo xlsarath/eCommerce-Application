@@ -61,7 +61,8 @@ public class User {
 	@Column(nullable = false)
 	@Length(min = 10)
 	private String password;
-	public String setPassword(String password){
+
+	public void setPassword(String password){
 		this.password = password;
 	}
 
