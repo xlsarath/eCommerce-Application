@@ -69,4 +69,12 @@ public class User {
     public String getPassword() {
 		return password;
     }
+
+    public User(String username, String password, Cart cart){
+		this.username = username;
+		this.password = password;
+		this.cart = cart;
+	}
+
+	public User(){  }
 }
