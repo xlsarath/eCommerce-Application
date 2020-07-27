@@ -11,7 +11,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import sun.security.util.SecurityConstants;
 
 import static com.example.demo.security.SecurityConstants.SIGN_UP_URL;
 
