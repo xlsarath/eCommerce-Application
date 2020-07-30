@@ -14,7 +14,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import static junit.framework.TestCase.assertEquals;
-import static junit.framework.TestCase.assertNull;
 import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -35,41 +34,39 @@ public class UserControllerTest {
     }
 
     @Test
-    public void create_user_happy_path() throws Exception {
-        log.debug("Running test: create_user_happy_path");
-        log.debug("Stubbing password.");
-        when(testBCryptEncoder.encode("test_password")).thenReturn("hashedPassword");
+    public void createUser() throws Exception {
+        log.debug("Test Scenario : Create User With valid credentials");
+        when(testBCryptEncoder.encode("Test_pass")).thenReturn("hashpass");
         CreateUserRequest userRequest = new CreateUserRequest();
-        userRequest.setUsername("test_user");
-        userRequest.setPassword("test_password");
-        userRequest.setConfirmPassword("test_password");
+        userRequest.setUsername("Test_user");
+        userRequest.setPassword("Test_pass");
+        userRequest.setConfirmPassword("Test_pass");
         final ResponseEntity<User> response = testUserController.createUser(userRequest);
         assertNotNull(response);
         assertEquals(200, response.getStatusCodeValue());
         User user = response.getBody();
         assertNotNull(user);
         assertEquals(0, user.getId());
-        assertEquals("test_user", user.getUsername());
-        assertEquals("hashedPassword", user.getPassword());
+        assertEquals("Test_user", user.getUsername());
+        assertEquals("hashpass", user.getPassword());
     }
 
     @Test
-    public void create_user_no_password() throws Exception {
-        log.debug("Running test: create_user_no_password");
+    public void createUserWithoutPassword() throws Exception {
+        log.debug("Test Scenario : Create User Without Password");
         CreateUserRequest userRequest = new CreateUserRequest();
-        userRequest.setUsername("test_user");
+        userRequest.setUsername("user1");
         final ResponseEntity<User> response = testUserController.createUser(userRequest);
-        assertNull(response);
         assertEquals(400, response.getStatusCodeValue());
     }
 
     @Test
-    public void create_user_bad_password() throws Exception {
-        log.debug("Running test: create_user_bad_password");
+    public void createUserInvalidPassword() throws Exception {
+        log.debug("Test Scenario : Create User With invalid password");
         CreateUserRequest userRequest = new CreateUserRequest();
-        userRequest.setUsername("test_user");
-        userRequest.setPassword("passwo");
-        userRequest.setConfirmPassword("passwo");
+        userRequest.setUsername("user2");
+        userRequest.setPassword("macha");
+        userRequest.setConfirmPassword("macha");
         final ResponseEntity<User> response = testUserController.createUser(userRequest);
         assertNotNull(response);
         assertEquals(400, response.getStatusCodeValue());
@@ -83,16 +80,16 @@ public class UserControllerTest {
         userRequest.setPassword("test_password");
         userRequest.setConfirmPassword("cool_password");
         final ResponseEntity<User> response = testUserController.createUser(userRequest);
-        assertNotNull(response);
+        //assertNotNull(response);
         assertEquals(400, response.getStatusCodeValue());
     }
 
     @Test
-    public void find_user_by_id_happy_path() throws Exception {
-        log.debug("Running test: find_user_by_id_happy_path");
+    public void findUserById() throws Exception {
+        log.debug("Test Scenario : search user by userId");
         User defaultUser = new User();
         defaultUser.setId(0L);
-        defaultUser.setUsername("default_user");
+        defaultUser.setUsername("sarath");
         when(testUserRepository.findById(0L)).thenReturn(java.util.Optional.of(defaultUser));
         final ResponseEntity<User> response = testUserController.findById(0L);
         assertNotNull(response);
@@ -100,37 +97,37 @@ public class UserControllerTest {
         User user = response.getBody();
         assert user != null;
         assertEquals(0, user.getId());
-        assertEquals("default_user", user.getUsername());
+        assertEquals("sarath", user.getUsername());
     }
 
     @Test
-    public void find_user_by_id_not_found() throws Exception {
-        log.debug("Running test: find_user_by_id_not_found");
+    public void findUserIDThatDoesntExist() throws Exception {
+        log.debug("Test Scenario : search user by invalid userId");
         final ResponseEntity<User> response = testUserController.findById(0L);
         assertNotNull(response);
         assertEquals(404, response.getStatusCodeValue());
     }
 
     @Test
-    public void find_user_by_username_happy_path() throws Exception {
-        log.debug("Running test: find_user_by_username_happy_path");
+    public void findUserByUsername() throws Exception {
+        log.debug("Test Scenario : search user by username");
         User defaultUser = new User();
         defaultUser.setId(0L);
-        defaultUser.setUsername("default_user");
-        when(testUserRepository.findByUsername("default_user")).thenReturn(defaultUser);
-        final ResponseEntity<User> response = testUserController.findByUserName("default_user");
+        defaultUser.setUsername("username");
+        when(testUserRepository.findByUsername("username")).thenReturn(defaultUser);
+        final ResponseEntity<User> response = testUserController.findByUserName("username");
         assertNotNull(response);
         assertEquals(200, response.getStatusCodeValue());
         User user = response.getBody();
         assert user != null;
         assertEquals(0, user.getId());
-        assertEquals("default_user", user.getUsername());
+        assertEquals("username", user.getUsername());
     }
 
     @Test
-    public void find_user_by_username_not_found() throws Exception {
-        log.debug("Running test: find_user_by_username_not_found");
-        final ResponseEntity<User> response = testUserController.findByUserName("default_user");
+    public void findUserByUsernameInvalidCase() throws Exception {
+        log.debug("Test Scenario : search user by username Invalid case");
+        final ResponseEntity<User> response = testUserController.findByUserName("username");
         assertNotNull(response);
         assertEquals(404, response.getStatusCodeValue());
     }

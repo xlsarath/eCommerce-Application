@@ -35,14 +35,14 @@ public class UserController {
 
 	@GetMapping("/id/{id}")
 	public ResponseEntity<User> findById(@PathVariable Long id) {
-		log.info("UserController.findbyId method Invoked using POST method");
+		log.info("User_Controller.findbyId method Invoked using POST method");
 		return ResponseEntity.of(userRepository.findById(id));
 	}
 	
 	@GetMapping("/{username}")
 	public ResponseEntity<User> findByUserName(@PathVariable String username) {
 		User user = userRepository.findByUsername(username);
-		log.info("UserController search user by name is invoked using POST method");
+		log.info("User_Controller search user by name is invoked using POST method");
 		return user == null ? ResponseEntity.notFound().build() : ResponseEntity.ok(user);
 	}
 	
@@ -50,21 +50,17 @@ public class UserController {
 	public ResponseEntity<User> createUser(@RequestBody CreateUserRequest createUserRequest) {
 		User user = new User();
 		user.setUsername(createUserRequest.getUsername());
-		//user.setPassword(createUserRequest.getPassword());
-		System.out.println(" you are here");
-		log.info("password"+createUserRequest.getPassword());
-		log.info("coni"+createUserRequest.getConfirmPassword());
 		Cart cart = new Cart();
 		cartRepository.save(cart);
 		user.setCart(cart);
-		if (createUserRequest.getPassword().length() < 7 ||
+		if (createUserRequest.getPassword() == null || createUserRequest.getPassword().length() < 7 ||
 				!createUserRequest.getPassword().equals(createUserRequest.getConfirmPassword())){
-			log.error("Failed to create user..invalid user info");
+			log.error("User_Controller: Failed to create user..invalid user info");
 			return ResponseEntity.badRequest().build();
 		}
 		user.setPassword(bCryptPasswordEncoder.encode(createUserRequest.getPassword()));
 		userRepository.save(user);
-		log.info("UserController create user method invoked");
+		log.info("User_Controller : new user : "+createUserRequest.getUsername()+" is created successfully");
 		return ResponseEntity.ok(user);
 	}
 	

@@ -25,26 +25,26 @@ public class ItemControllerTest {
 
     @Before
     public void setup() throws NoSuchFieldException, IllegalAccessException {
+        log.debug("test scenario : test base setup");
         testItemController = new ItemController();
         testItem = new Item();
         testItem.setId(0L);
-        testItem.setName("Round Test Widget");
+        testItem.setName("test object");
         testItemRepository.save(testItem);
         TestUtil.injectObject(testItemController, "itemRepository", testItemRepository);
     }
 
     @Test
-    public void get_items_happy_path() throws Exception {
-        log.debug("Running get_items_happy_path test");
+    public void fetchItems() throws Exception {
+        log.debug("test scenario : retrieve items");
         final ResponseEntity<List<Item>> response = testItemController.getItems();
         assertNotNull(response);
         assertEquals(200, response.getStatusCodeValue());
     }
 
     @Test
-    public void get_items_by_id_happy_path() throws Exception {
-        log.debug("Running get_items_by_id_happy_path test");
-        log.debug("Stubbing test item.");
+    public void retrieveItemsById() throws Exception {
+        log.debug("test scenario : retrieve items by Id");
         when(testItemRepository.findById(0L)).thenReturn(java.util.Optional.ofNullable(testItem));
         final ResponseEntity<Item> response = testItemController.getItemById(0L);
         assertNotNull(response);
@@ -52,27 +52,26 @@ public class ItemControllerTest {
     }
 
     @Test
-    public void get_items_by_id_not_found() throws Exception {
-        log.debug("Running test: get_items_by_id_happy_path");
+    public void retrieveItemsByInvalidId() throws Exception {
+        log.debug("test scenario : retrieve items invalid ID");
         final ResponseEntity<Item> response = testItemController.getItemById(0L);
         assertNotNull(response);
         assertEquals(404, response.getStatusCodeValue());
     }
 
     @Test
-    public void get_items_by_name_happy_path() throws Exception {
-        log.debug("Running test: get_items_by_name_happy_path");
-        log.debug("Stubbing item.");
-        when(testItemRepository.findByName("Round Test Widget")).thenReturn(Collections.singletonList(testItem));
+    public void retrieveItemsByName() throws Exception {
+        log.debug("test scenario : retrieve items by name");
+        when(testItemRepository.findByName("test object")).thenReturn(Collections.singletonList(testItem));
         final ResponseEntity<List<Item>> response = testItemController.getItemsByName(testItem.getName());
         assertNotNull(response);
         assertEquals(200, response.getStatusCodeValue());
     }
 
     @Test
-    public void get_items_by_name_not_found() throws Exception {
-        log.debug("Running test: get_items_by_name_not_found");
-        final ResponseEntity<List<Item>> response = testItemController.getItemsByName("Round Test Widget");
+    public void retrieveItemsByNameInvalidCase() throws Exception {
+        log.debug("test scenario : retrieve items by name invalid case");
+        final ResponseEntity<List<Item>> response = testItemController.getItemsByName("test object");
         assertNotNull(response);
         assertEquals(404, response.getStatusCodeValue());
     }

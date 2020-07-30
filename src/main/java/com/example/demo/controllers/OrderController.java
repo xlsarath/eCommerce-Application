@@ -43,6 +43,7 @@ public class OrderController {
 		}
 		UserOrder order = UserOrder.createFromCart(user.getCart());
 		orderRepository.save(order);
+		log.info("order submitted successfully");
 		return ResponseEntity.ok(order);
 	}
 	

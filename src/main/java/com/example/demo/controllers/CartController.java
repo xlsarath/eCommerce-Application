@@ -41,12 +41,12 @@ public class CartController {
 		log.info("AddToCart invoked thorough POST request");
 		User user = userRepository.findByUsername(request.getUsername());
 		if(user == null) {
-			log.error("AddToCart Exception : user info is null");
+			log.error("Cart_controller.AddToCart Exception : user info is null");
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
 		Optional<Item> item = itemRepository.findById(request.getItemId());
 		if(!item.isPresent()) {
-			log.error("AddToCart Exception : item not found");
+			log.error("Cart_controller.AddToCart Exception : item not found");
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
 		Cart cart = user.getCart();
@@ -58,21 +58,22 @@ public class CartController {
 	
 	@PostMapping("/removeFromCart")
 	public ResponseEntity<Cart> removeFromcart(@RequestBody ModifyCartRequest request) {
-		log.info("RemoveFromCart invoked POST request");
+		log.info("Cart_controller.RemoveFromCart invoked POST request");
 		User user = userRepository.findByUsername(request.getUsername());
 		if(user == null) {
-			log.error("RemoveFromCart Exception : user info is null");
+			log.error("Cart_controller.RemoveFromCart Exception : user info is null");
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
 		Optional<Item> item = itemRepository.findById(request.getItemId());
 		if(!item.isPresent()) {
-			log.error("RemoveFromCart Exception : item not found");
+			log.error("Cart_controller.RemoveFromCart Exception : item not found");
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
 		Cart cart = user.getCart();
 		IntStream.range(0, request.getQuantity())
 			.forEach(i -> cart.removeItem(item.get()));
 		cartRepository.save(cart);
+		log.info("Cart_controller cart removed successfully");
 		return ResponseEntity.ok(cart);
 	}
 

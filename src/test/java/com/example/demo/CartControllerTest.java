@@ -40,43 +40,39 @@ public class CartControllerTest {
 
     @Before
     public void setup() throws NoSuchFieldException, IllegalAccessException {
+        log.debug("Test Scenario : Init setup");
         testCartController = new CartController();
-
-        // create item
         testItem = new Item();
         testItem.setId(0L);
-        testItem.setName("Test Item");
-        testItem.setDescription("A really generic test item.");
-        testItem.setPrice(new BigDecimal("2.99"));
-
+        testItem.setName("test obj");
+        testItem.setDescription("test item description");
+        testItem.setPrice(new BigDecimal("9.99"));
         testCart = new Cart();
         testCart.setItems(Collections.singletonList(testItem));
-
         TestUtil.injectObject(testCartController, "cartRepository", testCartRepository);
         TestUtil.injectObject(testCartController, "userRepository", testUserRepository);
         TestUtil.injectObject(testCartController, "itemRepository", testItemRepository);
     }
 
     @Test
-    public void add_to_cart_happy_path() throws Exception {
-        log.debug("Running test: add_to_cart_happy_path");
+    public void addToCart() throws Exception {
+        log.debug("Test Scenario : Add to cart");
         ModifyCartRequest request = new ModifyCartRequest();
-        request.setUsername("john_smith");
+        request.setUsername("sarath");
         request.setItemId(0L);
-        request.setQuantity(2);
-        log.debug("Stubbing user.");
-        when(testUserRepository.findByUsername("john_smith")).thenReturn(new User("john_smith", "password123", testCart));
+        request.setQuantity(4);
+        when(testUserRepository.findByUsername("sarath")).thenReturn(new User("sarath", "123456789", testCart));
         final ResponseEntity<Cart> response = testCartController.addTocart(request);
         assertNotNull(response);
     }
 
     @Test
-    public void remove_from_cart_happy_path() throws Exception {
-        log.debug("Running test: remove_from_cart_happy_path");
+    public void removeItemsFromCart() throws Exception {
+        log.debug("Test Scenario : remove items from cart ");
         ModifyCartRequest request = new ModifyCartRequest();
-        request.setUsername("john_smith");
+        request.setUsername("sarath");
         request.setItemId(testItem.getId());
-        request.setQuantity(2);
+        request.setQuantity(4);
         final ResponseEntity<Cart> response = testCartController.removeFromcart(request);
         assertNotNull(response);
     }
