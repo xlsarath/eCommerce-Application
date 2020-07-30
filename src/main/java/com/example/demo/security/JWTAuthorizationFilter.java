@@ -18,19 +18,18 @@ import static com.example.demo.security.SecurityConstants.HEADER_STRING;
 import static com.example.demo.security.SecurityConstants.TOKEN_PREFIX;
 
 public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
+
     public JWTAuthorizationFilter(AuthenticationManager authenticationManager) {
         super(authenticationManager);
     }
 
         @Override
         protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
-            if (JwtUtils.isBasicAuth(request)){
-                chain.doFilter(request, response);
-            } else {
+            if (!JwtUtils.isBasicAuth(request)) {
                 UsernamePasswordAuthenticationToken authenticationToken = getAuthentication(request);
                 SecurityContextHolder.getContext().setAuthentication(authenticationToken);
-                chain.doFilter(request, response);
             }
+            chain.doFilter(request, response);
         }
 
         private UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest request){

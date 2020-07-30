@@ -1,0 +1,130 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs26 \cf0 \expnd0\expndtw0\kerning0
+Started by user sarath\
+Running as SYSTEM\
+Building in workspace /Users/sarathchandra/.jenkins/workspace/attempt1-freestyle\
+No credentials specified\
+ > git rev-parse --is-inside-work-tree # timeout=10\
+Fetching changes from the remote Git repository\
+ > git config remote.origin.url https://github.com/xlsarath/eCommerce-Application.git # timeout=10\
+Fetching upstream changes from https://github.com/xlsarath/eCommerce-Application.git\
+ > git --version # timeout=10\
+ > git fetch --tags --force --progress -- https://github.com/xlsarath/eCommerce-Application.git +refs/heads/*:refs/remotes/origin/* # timeout=10\
+ > git rev-parse refs/remotes/origin/master^\{commit\} # timeout=10\
+ > git rev-parse refs/remotes/origin/origin/master^\{commit\} # timeout=10\
+Checking out Revision 807b22372ab6dd7466375f618d2a20bfc3c05ef2 (refs/remotes/origin/master)\
+ > git config core.sparsecheckout # timeout=10\
+ > git checkout -f 807b22372ab6dd7466375f618d2a20bfc3c05ef2 # timeout=10\
+Commit message: "improved test coverage to 61%"\
+ > git rev-list --no-walk 28439d1a76566a2b7a56495cd074a5d93f135cdd # timeout=10\
+[attempt1-freestyle] $ /Users/sarathchandra/.jenkins/tools/hudson.tasks.Maven_MavenInstallation/maven/bin/mvn -f pom.xml clean install\
+[INFO] Scanning for projects...\
+[WARNING] \
+[WARNING] Some problems were encountered while building the effective model for com.example:auth-course:jar:0.0.1-SNAPSHOT\
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.springframework.boot:spring-boot-starter-test:jar -> duplicate declaration of version (?) @ line 56, column 15\
+[WARNING] \
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.\
+[WARNING] \
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.\
+[WARNING] \
+[INFO] \
+[INFO] ----------------------< com.example:auth-course >-----------------------\
+[INFO] Building auth-course 0.0.1-SNAPSHOT\
+[INFO] --------------------------------[ jar ]---------------------------------\
+[INFO] \
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ auth-course ---\
+[INFO] Deleting /Users/sarathchandra/.jenkins/workspace/attempt1-freestyle/target\
+[INFO] \
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ auth-course ---\
+[INFO] Using 'UTF-8' encoding to copy filtered resources.\
+[INFO] Copying 1 resource\
+[INFO] Copying 2 resources\
+[INFO] \
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ auth-course ---\
+[INFO] Changes detected - recompiling the module!\
+[INFO] Compiling 22 source files to /Users/sarathchandra/.jenkins/workspace/attempt1-freestyle/target/classes\
+[INFO] \
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ auth-course ---\
+[INFO] Using 'UTF-8' encoding to copy filtered resources.\
+[INFO] skip non existing resourceDirectory /Users/sarathchandra/.jenkins/workspace/attempt1-freestyle/src/test/resources\
+[INFO] \
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ auth-course ---\
+[INFO] Changes detected - recompiling the module!\
+[INFO] Compiling 6 source files to /Users/sarathchandra/.jenkins/workspace/attempt1-freestyle/target/test-classes\
+[INFO] \
+[INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ auth-course ---\
+[INFO] \
+[INFO] -------------------------------------------------------\
+[INFO]  T E S T S\
+[INFO] -------------------------------------------------------\
+[INFO] Running com.example.demo.UserControllerTest\
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.423 s - in com.example.demo.UserControllerTest\
+[INFO] Running com.example.demo.SareetaApplicationTests\
+\
+  .   ____          _            __ _ _\
+ /\\\\ / ___'_ __ _ _(_)_ __  __ _ \\ \\ \\ \\\
+( ( )\\___ | '_ | '_| | '_ \\/ _` | \\ \\ \\ \\\
+ \\\\/  ___)| |_)| | | | | || (_| |  ) ) ) )\
+  '  |____| .__|_| |_|_| |_\\__, | / / / /\
+ =========|_|==============|___/=/_/_/_/\
+ :: Spring Boot ::        (v2.1.5.RELEASE)\
+\
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 21.926 s - in com.example.demo.SareetaApplicationTests\
+[INFO] Running com.example.demo.ItemControllerTest\
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.11 s - in com.example.demo.ItemControllerTest\
+[INFO] Running com.example.demo.CartControllerTest\
+\
+  .   ____          _            __ _ _\
+ /\\\\ / ___'_ __ _ _(_)_ __  __ _ \\ \\ \\ \\\
+( ( )\\___ | '_ | '_| | '_ \\/ _` | \\ \\ \\ \\\
+ \\\\/  ___)| |_)| | | | | || (_| |  ) ) ) )\
+  '  |____| .__|_| |_|_| |_\\__, | / / / /\
+ =========|_|==============|___/=/_/_/_/\
+ :: Spring Boot ::        (v2.1.5.RELEASE)\
+\
+Hibernate: create table cart (id bigint generated by default as identity, total decimal(19,2), primary key (id))\
+Hibernate: create table cart_items (cart_id bigint not null, items_id bigint not null)\
+Hibernate: create table item (id bigint generated by default as identity, description varchar(255) not null, name varchar(255) not null, price decimal(19,2) not null, primary key (id))\
+Hibernate: create table user (id bigint generated by default as identity, password varchar(255) not null, username varchar(255) not null, cart_id bigint, primary key (id))\
+Hibernate: create table user_order (id bigint generated by default as identity, total decimal(19,2), user_id bigint not null, primary key (id))\
+Hibernate: create table user_order_items (user_order_id bigint not null, items_id bigint not null)\
+Hibernate: alter table user drop constraint if exists UK_sb8bbouer5wak8vyiiy4pf2bx\
+Hibernate: alter table user add constraint UK_sb8bbouer5wak8vyiiy4pf2bx unique (username)\
+Hibernate: alter table cart_items add constraint FKbgmrxyvqs3kxt1im75fde3psy foreign key (items_id) references item\
+Hibernate: alter table cart_items add constraint FK99e0am9jpriwxcm6is7xfedy3 foreign key (cart_id) references cart\
+Hibernate: alter table user add constraint FKtqa69bib34k2c0jhe7afqsao6 foreign key (cart_id) references cart\
+Hibernate: alter table user_order add constraint FKj86u1x7csa8yd68ql2y1ibrou foreign key (user_id) references user\
+Hibernate: alter table user_order_items add constraint FKghpu6f1jrpho0deyeltq47u2u foreign key (items_id) references item\
+Hibernate: alter table user_order_items add constraint FKt6k533isn84ef898d6sln1xna foreign key (user_order_id) references user_order\
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.89 s - in com.example.demo.CartControllerTest\
+[INFO] Running com.example.demo.OrderControllerTest\
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.169 s - in com.example.demo.OrderControllerTest\
+[INFO] \
+[INFO] Results:\
+[INFO] \
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0\
+[INFO] \
+[INFO] \
+[INFO] --- maven-jar-plugin:3.1.1:jar (default-jar) @ auth-course ---\
+[INFO] Building jar: /Users/sarathchandra/.jenkins/workspace/attempt1-freestyle/target/auth-course-0.0.1-SNAPSHOT.jar\
+[INFO] \
+[INFO] --- spring-boot-maven-plugin:2.1.5.RELEASE:repackage (repackage) @ auth-course ---\
+[INFO] Replacing main artifact with repackaged archive\
+[INFO] \
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ auth-course ---\
+[INFO] Installing /Users/sarathchandra/.jenkins/workspace/attempt1-freestyle/target/auth-course-0.0.1-SNAPSHOT.jar to /Users/sarathchandra/.m2/repository/com/example/auth-course/0.0.1-SNAPSHOT/auth-course-0.0.1-SNAPSHOT.jar\
+[INFO] Installing /Users/sarathchandra/.jenkins/workspace/attempt1-freestyle/pom.xml to /Users/sarathchandra/.m2/repository/com/example/auth-course/0.0.1-SNAPSHOT/auth-course-0.0.1-SNAPSHOT.pom\
+[INFO] ------------------------------------------------------------------------\
+[INFO] BUILD SUCCESS\
+[INFO] ------------------------------------------------------------------------\
+[INFO] Total time:  58.108 s\
+[INFO] Finished at: 2020-07-30T02:49:20-07:00\
+[INFO] ------------------------------------------------------------------------\
+Finished: SUCCESS}

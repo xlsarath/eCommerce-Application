@@ -20,17 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d0a9fbf0-deef-4f6a-8e41-2d384a3235bd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ECommerceApplication_application.log.2020-07-29.0172154171858319.tmp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ECommerceApplication_application.log" beforeDir="false" afterPath="$PROJECT_DIR$/ECommerceApplication_application.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/SareetaApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/SareetaApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/controllers/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/controllers/CartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/controllers/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/controllers/ItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/controllers/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/controllers/OrderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/demo/CartControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/demo/CartControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/demo/ItemControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/demo/ItemControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/demo/OrderControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/demo/OrderControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/demo/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/demo/UserControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/security/JWTAuthorizationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/security/JWTAuthorizationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +73,20 @@
       <command value="mvn clean install" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.OrderControllerTest">
+  <component name="RunManager" selected="Application.SareetaApplication">
+    <configuration name="SareetaApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.demo.SareetaApplication" />
+      <module name="auth-course" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CartControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="auth-course" />
       <extension name="coverage">
@@ -137,29 +147,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserControllerTest.create_user_mismatch_password" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="auth-course" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.demo.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.demo" />
-      <option name="MAIN_CLASS_NAME" value="com.example.demo.UserControllerTest" />
-      <option name="METHOD_NAME" value="create_user_mismatch_password" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SareetaApplication" />
         <item itemvalue="JUnit.OrderControllerTest" />
         <item itemvalue="JUnit.ItemControllerTest" />
         <item itemvalue="JUnit.CartControllerTest" />
         <item itemvalue="JUnit.UserControllerTest" />
-        <item itemvalue="JUnit.UserControllerTest.create_user_mismatch_password" />
       </list>
     </recent_temporary>
   </component>
@@ -200,30 +194,30 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="100" y="100" width="1240" height="700" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1440.900@0.0.1440.900" timestamp="1596090316210" />
-    <state x="533" y="173" key="#com.intellij.ide.util.MemberChooser" timestamp="1596095879907">
+    <state x="533" y="173" key="#com.intellij.ide.util.MemberChooser" timestamp="1596101802027">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="533" y="173" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1596095879901" />
+    <state x="533" y="173" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1596101802027" />
     <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1595833446627">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1595833446627" />
-    <state width="1398" height="252" key="GridCell.Tab.0.bottom" timestamp="1596097180360">
+    <state width="1398" height="252" key="GridCell.Tab.0.bottom" timestamp="1596099760955">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="252" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1596097180360" />
-    <state width="1398" height="252" key="GridCell.Tab.0.center" timestamp="1596097180356">
+    <state width="1398" height="252" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1596099760955" />
+    <state width="1398" height="252" key="GridCell.Tab.0.center" timestamp="1596099760952">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="252" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1596097180356" />
-    <state width="1398" height="252" key="GridCell.Tab.0.left" timestamp="1596097178946">
+    <state width="1398" height="252" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1596099760952" />
+    <state width="1398" height="252" key="GridCell.Tab.0.left" timestamp="1596099760950">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="252" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1596097178946" />
-    <state width="1398" height="252" key="GridCell.Tab.0.right" timestamp="1596097180358">
+    <state width="1398" height="252" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1596099760950" />
+    <state width="1398" height="252" key="GridCell.Tab.0.right" timestamp="1596099760954">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="252" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1596097180358" />
+    <state width="1398" height="252" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1596099760954" />
     <state width="1398" height="304" key="GridCell.Tab.1.bottom" timestamp="1596097106933">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -252,10 +246,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="522" y="235" key="chooseDestDirectoryDialog/0.0.1440.900@0.0.1440.900" timestamp="1595725511198" />
-    <state x="429" y="233" key="refactoring.ChangeSignatureDialog" timestamp="1595833421629">
+    <state x="429" y="233" key="refactoring.ChangeSignatureDialog" timestamp="1596101807002">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="429" y="233" key="refactoring.ChangeSignatureDialog/0.0.1440.900@0.0.1440.900" timestamp="1595833421629" />
+    <state x="429" y="233" key="refactoring.ChangeSignatureDialog/0.0.1440.900@0.0.1440.900" timestamp="1596101807002" />
     <state x="385" y="205" width="670" height="675" key="run.anything.popup" timestamp="1595701600678">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

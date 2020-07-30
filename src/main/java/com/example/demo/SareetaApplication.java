@@ -28,7 +28,6 @@ public class SareetaApplication {
 	}
 
 	public static void main(String[] args) {
-		log.debug("This is a Debug Message!");
 		log.info("This is an Info Message!");
 		log.error("And here comes the Error Message!", new RuntimeException("RunRunRun"));
 		SpringApplication.run(SareetaApplication.class, args);
